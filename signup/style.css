@@ -1,0 +1,36 @@
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+section{
+    width: 80%;
+    margin: auto;
+}
+
+input {
+    padding: 16px;
+    width: 100%;
+    margin: 10px 0;
+    border: 1px solid #000000;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+button{
+    padding: 10px 40px;
+    background-color: #000000;
+    color: white;
+    margin: 10px 0;
+}
+
+@media (max-width: 578px) {
+    section{
+        width: 90%;
+    }
+    input{
+        padding: 12px;
+        font-size: 14px;
+        width: 90%;
+    };
+}

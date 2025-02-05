@@ -78,3 +78,11 @@ document.getElementById("changePass").addEventListener("click", (event) => {
         message.style.color = "red";
     }
 });
+
+//logout
+document.getElementById("logout").addEventListener("click", (event) => {
+    event.preventDefault();
+    localStorage.removeItem("currentUser");
+    window.location.href = "/login/login.html";
+
+})

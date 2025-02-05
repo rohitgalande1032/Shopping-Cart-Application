@@ -157,6 +157,8 @@ main-content .items .item {
 
 main-content .items .item img {
   max-width: 100%;
+  height: 300PX;
+  object-fit: cover;
 }
 
 main-content .items .item .row {

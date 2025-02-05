@@ -8,37 +8,41 @@ document.getElementById("btn").addEventListener("click", (event) => {
 
 
     let error = document.getElementById("error");
+    error.textContent = "";
 
     if(firstName.value == "" || lastName.value == "" || email.value == "" || password.value == "" || confirmPassword.value == "") {
         error.textContent = "Please fill all required fields";
         error.style.color = "red";
-    }else{
-        if(password.value != confirmPassword.value){
-            error.textContent = "Please make sure password and confirm password are the same";
+    }else if(password.value == confirmPassword.value){
+        let users = JSON.parse(localStorage.getItem("users") ?? "[]");
+        let existingUser = users.find(user => user.email == email.value);
+        if(existingUser) {
+            error.textContent = "User already exists";
             error.style.color = "red";
         }else{
-            let users = JSON.parse(localStorage.getItem("users")) || [];
             let user = {
                 firstName: firstName.value,
                 lastName: lastName.value,
                 email: email.value,
-                password: password.value,
-            }
-            users.push(user);
-            localStorage.setItem("users", JSON.stringify(users));
-
-            console.log("Registration Successful !")
-            console.log("Registered User: ", user);
-
-            error.textContent = "Successfully Registered !";
-            error.style.color = "green";
-
-            firstName.value = "";
-            lastName.value = "";
-            email.value = "";
-            password.value = "";
-            confirmPassword.value = "";
+                password: password.value
         }
-        
+        users.push(user);
+        localStorage.setItem("users", JSON.stringify(users));
+        error.textContent = "Registration successful";
+        error.style.color = "green";
+
+        firstName.value = "";
+        lastName.value = "";
+        email.value = "";
+        password.value = "";
+        confirmPassword.value = "";
+
+
+        window.location.href = "/login/login.html"
     }
+        
+ }else{
+    error.textContent = "Please make sure password and confirm password are the same";
+    error.style.color = "red";
+}
 })

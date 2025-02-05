@@ -10,16 +10,28 @@
     <title>Profile</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../signup/style.css" />
     <link rel="stylesheet" href="" />
   </head>
   <body>
-    <!--[if lt IE 7]>
-      <p class="browsehappy">
-        You are using an <strong>outdated</strong> browser. Please
-        <a href="#">upgrade your browser</a> to improve your experience.
-      </p>
-    <![endif]-->
+    <section>
+      <h1 style="text-align: center;">My Profile</h1>
+      <form>
+          <input type="text" id="firstname" placeholder="First Name"><br>
+          <input type="text" id="lastname" placeholder="Last Name"><br>
+          <button id="saveInfo">Save Info</button>
+          <p id="error"></p>
 
-    <script src="" async defer></script>
+          <h1 style="text-align: center;">Edit Password</h1>
+          <input type="password" id="oldPassword" placeholder="Old Password"><br>
+          <input type="password" id="password" placeholder="New Password"><br>
+            <input type="password" id="confirmPassword" placeholder="Confirm New Password"><br>
+            <button id="changePass">Change Password</button>
+            <button id="logout">Logout</button>
+            <p id="success"></p>
+      </form>
+   </section>
+
+    <script src="./script.js" async defer></script>
   </body>
 </html>
